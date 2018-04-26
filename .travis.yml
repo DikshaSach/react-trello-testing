@@ -1,5 +1,7 @@
 language: node_js
-node_js: node
+node_js: 
+  - "node"
+  - "8"
 cache:
   directories:
     - node_modules
@@ -14,7 +16,8 @@ before_deploy:
 
 deploy:
   provider: script
-  script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
+  #script: netlify deploy -s  $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
+  script: echo $NETLIFY_SITE_ID
   skip_cleanup: true
   on:
     branch: master
